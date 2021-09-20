@@ -1,12 +1,25 @@
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<%= link_to "タグ検索", posts_path %>
 <h1>映画検索</h1>
 <div>
-  <%= form_tag(root_path, method: :get) do %>
+    <%= form_tag(root_path, method: :get) do %>
     <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' %>
     <%= submit_tag '検索' %>
-  <% end %>
-</div>
-<% @movies['results'].each do |movie| %>
-    <p><%= movie['overview'] %></p>
 <% end %>
+</div>
+<div class = "container">
+    <% @movies['results'].each do |movie| %>
+        <div class = "data">
+            <%= movie['title'] %>
+            <p><%= link_to "詳細・投稿", movie_path(movie['id']) %></p>
+            <p><%#= movie['release_date'] %></p>
+            <p><%#= movie['id'] %></p>
+            <% @movie_id = movie['id'] %>
+            <% if movie['poster_path']  %>
+                <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + movie['poster_path'],class: "card-img" %></p>
+            <% end %>
+        </div>
+    <% end %>
+</div>
 
 

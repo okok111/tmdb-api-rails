@@ -1,0 +1,37 @@
+<h1>タグで検索</h1>
+<%= link_to "映画検索", movies_search_path %>
+<%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
+
+    <% @tags.each do |tag| %>
+        <div class="tag-box">
+          <%= link_to tag.name, posts_path(name: tag.id) %>
+        </div>
+    <% end %>
+        <div class="tag-box">
+          <%= link_to "全ての映画", posts_path %>
+        </div>
+  
+  <div class="posts-container">
+      <% @posts.each do |t| %>
+      <div class="post">
+        <p><%= t.title %></p>
+        <p><%= link_to "詳細・コメント", post_path(t.id) %></p>
+        <p>==========</p>
+        <p><%= t.genre %></p>
+        <p>==========</p>
+        <p><%#= t.description %></p>
+        <% if t.image %>
+          <%= image_tag t.image %>
+        <% end %>
+        <p><%#= t.hoken %></p>
+        <%#= t.created_at %>
+        <%#= link_to "編集する", edit_post_path(t.id) %>
+        <%#= button_to "削除する", post_path(t.id), method: :delete %>
+      </div>
+        <%# t.tags.each do |tag| %>
+            <%#= tag.name %>
+        <%# end %>
+      <p>================</p>
+    <% end %>
+  </div>
+<% end %>

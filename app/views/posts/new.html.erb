@@ -1,0 +1,26 @@
+<p><%= link_to "映画検索", movies_search_path %></p>
+<%= link_to "タグ検索", posts_path %>
+<%= form_for @post do |f| %>
+    <div class="check_box">
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+                <div class='form-check'>
+                　  <%= tag.label do %>
+                    　  <%= tag.check_box %>
+                    　  <%= tag.text %>
+                　　<% end %>
+                </div>
+        <% end %>
+    </div>
+    <div class="movie">
+        <p> <%= f.hidden_field :title, :size => 140, value: @movie['title']%> </p>
+        <p> <%= f.hidden_field :year, :size => 140, value: @movie['release_date']%> </p>
+        <p> <%= f.hidden_field :description, :size => 140, value: @movie['overview'] %></p>
+        <p> <%= f.hidden_field :image, value: 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'] %></p>
+        <h4>この映画をひとことで(15字程度で)</h4>
+        <p> <%= f.text_field :genre, :size => 35 %></p>
+        <h4>感想</h4>
+        <p> <%= f.text_field :hoken, :size => 140 %></p>
+    </div>
+    <%= f.submit "postする" %>
+<% end %>
+

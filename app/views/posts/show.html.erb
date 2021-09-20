@@ -1,0 +1,21 @@
+<h3><%= link_to "戻る", posts_path %></h3>
+<h3><%= link_to "映画検索", movies_search_path %></h3>
+<div class="post">
+  <p><%= @post.title %></p>
+  <p><%= @post.year %></p>
+  <% if @post.image %>
+    <%= image_tag @post.image %>
+  <% end %>
+  <p><%= @post.description %></p>
+  <p><%#= @post.created_at %></p>
+  <p>================================</p>
+  <p><%= @post.genre %></p>
+  <p><%= @post.hoken %></p>
+  <p>================================</p>
+</div>
+  
+<% @post.tags.each do |tag| %>
+    <%= tag.name %>
+<% end %>
+
+<%#= link_to "編集する", edit_post_path(@post.id) %>

@@ -1,0 +1,9 @@
+<h1>Posts#edit</h1>
+<p>Find me in app/views/posts/edit.html.erb</p>
+<%= form_for @post do |f| %>
+  <%= f.label :body %>
+<p> <%= f.text_field :title, :size => 140 %> </p>
+<p> <%= f.text_field :year, :size => 140 %> </p>
+<p> <%= f.text_field :description, :size => 140 %></p>
+<%= f.submit "編集する" %>
+<% end %>
