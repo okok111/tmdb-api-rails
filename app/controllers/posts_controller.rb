@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
+before_action :authenticate_user!
 
   def index
     @posts = Post.all
     @tags = Tag.all
-    @posts = params[:name].present? ? Tag.find(params[:name]).posts : Post.all
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
   end
 
   def new
@@ -15,6 +16,9 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
+
+    post.user_id = current_user.id
+
     if post.save
       redirect_to :action => "index"
     else
@@ -26,7 +30,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     
-  end
+  end 
 
   def edit
     @post = Post.find(params[:id])

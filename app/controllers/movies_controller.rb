@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
- 
+
   def search
     if params[:looking_for]
       movie_title = params[:looking_for]
@@ -17,4 +17,4 @@ class MoviesController < ApplicationController
     url = URI.encode('https://api.themoviedb.org/3/movie/'+ movie_id +'?api_key=150363785ff664359067f5e9ccbe5883&language=ja')
     @movie = JSON.parse(Net::HTTP.get(URI.parse(url)))
   end
-end
+end 

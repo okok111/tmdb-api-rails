@@ -1,11 +1,25 @@
-<div class="movie">
-    <h3><p><%= @movie['title'] %></p></h3>
-    <p><%= @movie['release_date'] %></p>
-    <% movie_id = @movie['id'] %>
-    <p><%= @movie['overview'] %></p>
-    <h2><%= link_to "投稿ページへ", new_post_path(movie_id: @movie['id']) %></h2>
-    <p><%#= @movie['id'] %></p>
-    <p><%#= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'],class: "card-img" %></p>
+<div class="ishimon">
+
+<br>
+    <div class="btn3">
+        <%= link_to "映画検索", movies_search_path , class: 'okawa' %>
+        <%= link_to "投稿一覧へ", posts_path , class: 'okawa' %>
+    </div>
+    <div class="movie">
+        <h1><p><%= @movie['title'] %></p></h1>
+        <p><%= @movie['release_date'] %></p>
+        <% movie_id = @movie['id'] %>
+        <br>
+        <h2><%= link_to "投稿ページへ", new_post_path(movie_id: @movie['id']) ,class:'postbtn' %></h2>
+        <br>
+        <p><%#= @movie['id'] %></p>
+        <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + @movie['poster_path'],class: "card-size" %></p>
+        <br>
+            <div class = kaigyo>
+                <p><%= @movie['overview'] %></p>
+            </div>
+            <br>
+        <h2><%= link_to "投稿ページへ", new_post_path(movie_id: @movie['id']) ,class:'postbtn' %></h2>
+    </div>
+    <br>
 </div>
-<%= link_to "映画検索", movies_search_path %>
-<%= link_to "タグ検索", posts_path %>

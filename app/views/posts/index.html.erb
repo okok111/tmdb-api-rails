@@ -1,37 +1,54 @@
-<h1>タグで検索</h1>
-<%= link_to "映画検索", movies_search_path %>
-<%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
+<div class="ishimon"> 
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <div class="toptitle">
+      <h1>★Meet Awesome Movie★</h1>
+      <h2><%= link_to "Search Movie Title & Post", movies_search_path %></h2><br>
 
-    <% @tags.each do |tag| %>
-        <div class="tag-box">
-          <%= link_to tag.name, posts_path(name: tag.id) %>
+        <div class="ayanochan">
+        <br>
+          <p>こちらは『普通の映画検索に飽きた』『みんなのオススメを知りたい』</p>
+          <p>といった悩みを解決する『直感で映画に出会える』ページ。</p>
+          <p>あなたの映画体験を共有するなら<%= link_to "こちらへ", movies_search_path %></p><br>
         </div>
-    <% end %>
-        <div class="tag-box">
-          <%= link_to "全ての映画", posts_path %>
+
+        <br>
+        <br>
+        
+          <p>ジャンル検索はこちら!</p>
+          <p>↓  ↓  ↓</p>
+          <br>
+          <%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
+
+            <%= select_tag :tag_id,
+                            options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                          {prompt: '全ての映画を表示',onchange: 'submit(this.form);'}%>
+          <% end %>
+          <br>
+        
+    </div>
+    <div class="posts-container">
+        <% @posts.each do |t| %>
+        <div class="post">
+          <p><%#= t.title %></p>
+          <p><%#= link_to "詳細・コメント", post_path(t.id) %></p>
+          <p class="nakayan"><%= link_to t.title, post_path(t.id)%></p>
+          <div class="subtitle">
+            <p><%= t.genre %></p>
+          </div>
+          <p><%#= t.description %></p>
+          <% if t.image %>
+            <%= image_tag t.image ,class: "card"%>
+          <% end %>
+          <p><%#= t.hoken %></p>
+          <%#= t.created_at %>
+          <%#= link_to "編集する", edit_post_path(t.id) %> 
+          <% if user_signed_in? && current_user.id == t.user_id %>
+          <%= button_to "削除する", post_path(t.id), method: :delete %>
+          <% end %>
         </div>
-  
-  <div class="posts-container">
-      <% @posts.each do |t| %>
-      <div class="post">
-        <p><%= t.title %></p>
-        <p><%= link_to "詳細・コメント", post_path(t.id) %></p>
-        <p>==========</p>
-        <p><%= t.genre %></p>
-        <p>==========</p>
-        <p><%#= t.description %></p>
-        <% if t.image %>
-          <%= image_tag t.image %>
-        <% end %>
-        <p><%#= t.hoken %></p>
-        <%#= t.created_at %>
-        <%#= link_to "編集する", edit_post_path(t.id) %>
-        <%#= button_to "削除する", post_path(t.id), method: :delete %>
-      </div>
-        <%# t.tags.each do |tag| %>
-            <%#= tag.name %>
-        <%# end %>
-      <p>================</p>
-    <% end %>
-  </div>
-<% end %>
+          <%# t.tags.each do |tag| %>
+              <%#= tag.name %>
+          <%# end %>
+      <% end %>
+    </div>
+</div>

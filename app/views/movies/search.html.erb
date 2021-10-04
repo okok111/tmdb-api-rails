@@ -1,25 +1,38 @@
-<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<%= link_to "タグ検索", posts_path %>
-<h1>映画検索</h1>
-<div>
-    <%= form_tag(root_path, method: :get) do %>
-    <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' %>
-    <%= submit_tag '検索' %>
-<% end %>
-</div>
-<div class = "container">
-    <% @movies['results'].each do |movie| %>
-        <div class = "data">
-            <%= movie['title'] %>
-            <p><%= link_to "詳細・投稿", movie_path(movie['id']) %></p>
-            <p><%#= movie['release_date'] %></p>
-            <p><%#= movie['id'] %></p>
-            <% @movie_id = movie['id'] %>
-            <% if movie['poster_path']  %>
-                <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + movie['poster_path'],class: "card-img" %></p>
-            <% end %>
+<div class="ishimon">
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <div class="toptitle2">
+        <h1>★Search Movie Title & Post★</h1>
+        <h2><%= link_to "Meet Awesome Movie", posts_path %></h2><br>
+        <div class="ayanochan">
+        <br>
+        <p>こちらは『映画名検索＆投稿』ページです。</p>
+        <p>直感で検索したい方は<%= link_to "こちらへ", posts_path %> </p>
+        <br>
         </div>
-    <% end %>
+        <br>
+        <br>
+            <div>
+                <%= form_tag(root_path, method: :get) do %>
+                    <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' , :size => "40*40" %>
+                    <%= submit_tag 'search' %>
+                <% end %>
+            </div>
+    </div>
+    <br>
+    <div class = "container">
+        <% @movies['results'].each do |movie| %>
+            <div class = "data">
+                <%= movie['title'] %>
+                <p><%= link_to "詳細・投稿", movie_path(movie['id']) %></p>
+                <p><%#= movie['release_date'] %></p>
+                <p><%#= movie['id'] %></p>
+                <% @movie_id = movie['id'] %>
+                <% if movie['poster_path']  %>
+                    <p><%= image_tag 'https://image.tmdb.org/t/p/w200' + movie['poster_path'],class: "card-img" %></p>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
 </div>
 
 

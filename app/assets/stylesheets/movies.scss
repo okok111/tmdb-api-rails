@@ -3,12 +3,26 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+.ayanochan{
+    border-style:solid;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+}
+
 .container{
     width: 100%;
-    margin: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.data{
+    max-width: 12em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 1.5%;
 }
 
 .card-img {
@@ -16,3 +30,46 @@
     border-radius: 15px;
 }
 
+.card-size{
+    width: 25%;
+    border-radius: 15px;
+}
+
+.kaigyo{
+    max-width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    border:solid white;
+    color:white;
+    background-color:rgb(27, 31, 27);
+    border-radius: 10px;
+}
+
+.toptitle2{
+    text-align:center;
+}
+
+.movie{
+    text-align:center;
+    // justify-content: center;
+    // justify-content: space-around;
+}
+
+.okawa{
+    color: #fff;
+    border: 2px solid white;
+    text-decoration: none;
+}
+
+.btn3{
+    margin-top: 10px;
+    margin-left: 2%;
+}
+
+.postbtn{
+    border: 2px solid white ;
+    text-decoration: none;
+    color: white;
+    // background-color: red;
+    border-radius: 3px;
+}

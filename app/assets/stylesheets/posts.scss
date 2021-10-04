@@ -1,12 +1,138 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.tag-box{
-    background-color: floralwhite;
-    display: inline;
-    border: 1px solid #000000;
+// .tag-box{
+//     background-color: floralwhite;
+//     display: inline;
+//     border: 1px solid #000000;
 
-    a{
-        text-decoration: none;
-    }
+//     a{
+//         text-decoration: none;
+//     }
+// }
+
+.ayanochan{
+    border-style:solid;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
 }
+
+
+.tomocchi{
+    background-color: rgb(27, 31, 27);
+    height: 120vh;
+    color: rgb(32, 219, 63);
+}
+
+.posts-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.post{
+    // width: 19em;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    margin: 1.5%;
+}
+.nakayan{
+    max-width: 12em;
+    color: red;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.card{
+    border-radius: 15px;
+}
+
+.detail1{
+    text-align:center;
+    // justify-content: center;
+    // justify-content: space-around;
+}
+
+.yokohaba{
+    max-width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    border:solid white;
+    color:white;
+    background-color:rgb(27, 31, 27);
+    border-radius: 10px;
+
+    // border-radius: 10px;
+    // justify-content: center;
+}
+
+.subtitle{
+    border-style:solid;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 12.25em;
+}
+
+.toptitle{
+    text-align:center;
+}
+
+.kansou2{
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    height: 30px;
+    width: 100px;
+    color:white;
+    background-color: rgb(60, 2, 221);
+}
+
+.check_box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 25%;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.okawa{
+    color: #fff;
+    border: 2px solid white;
+    text-decoration: none;
+}
+
+.btn3{
+    margin-top: 10px;
+    margin-left: 2%;
+}
+
+.review{
+    border-style:solid;
+    border-radius: 1px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 12.25em;
+}
+// select {
+//     border:white;
+// }
+
+// .tagsize{
+//     border-style:solid;
+//     border-radius: 10px;
+//     text-align: center;
+//     width: 25%;
+//     // height: 100px;
+// }
