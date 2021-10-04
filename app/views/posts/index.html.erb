@@ -39,16 +39,12 @@
           <% if t.image %>
             <%= image_tag t.image ,class: "card"%>
           <% end %>
-          <p><%#= t.hoken %></p>
-          <%#= t.created_at %>
-          <%#= link_to "編集する", edit_post_path(t.id) %> 
+
           <% if user_signed_in? && current_user.id == t.user_id %>
           <%= button_to "削除する", post_path(t.id), method: :delete %>
           <% end %>
         </div>
-          <%# t.tags.each do |tag| %>
-              <%#= tag.name %>
-          <%# end %>
+
       <% end %>
     </div>
 </div>
