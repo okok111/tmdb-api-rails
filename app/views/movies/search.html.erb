@@ -2,7 +2,7 @@
     <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
     <div class="toptitle2">
         <h1>★Search Movie Title & Post★</h1>
-        <h2><%= link_to "Meet Awesome Movie", posts_path %></h2><br>
+        <h2><%= link_to "Meet Awesome Movie", posts_path%></h2><br>
         <div class="ayanochan">
         <br>
         <p>こちらは『映画名検索＆投稿』ページです。</p>
@@ -11,6 +11,7 @@
         </div>
         <br>
         <br>
+        <h6>※空欄で検索ボタンを押すとエラーが出ます。</h6>
             <div>
                 <%= form_tag(root_path, method: :get) do %>
                     <%= search_field_tag :looking_for, nil, placeholder: 'Movie Title...' , :size => "40*40" %>

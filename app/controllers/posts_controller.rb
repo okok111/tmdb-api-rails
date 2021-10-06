@@ -2,9 +2,8 @@ class PostsController < ApplicationController
 before_action :authenticate_user!
 
   def index
-    @posts = Post.all
     @tags = Tag.all
-    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all.order(id: "DESC")
   end
 
   def new

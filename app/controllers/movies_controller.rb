@@ -8,7 +8,6 @@ class MoviesController < ApplicationController
     else
       url = 'https://api.themoviedb.org/3/movie/popular?api_key=150363785ff664359067f5e9ccbe5883&language=ja'
     end
-
     @movies = JSON.parse(Net::HTTP.get(URI.parse(url))) 
   end
 

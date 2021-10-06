@@ -59,6 +59,12 @@
     color: #fff;
     border: 2px solid white;
     text-decoration: none;
+    border-radius: 3px;
+}
+
+.okawa:hover{
+    color: rgb(27, 31, 27);
+    background-color: #fff;
 }
 
 .btn3{
@@ -73,3 +79,10 @@
     // background-color: red;
     border-radius: 3px;
 }
+
+.postbtn:hover{
+    color: rgb(27, 31, 27);
+    background-color: #fff;
+}
+
+
